@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CharOne from './ChartOne';
+import ChartTwo from './ChartTwo';
+import ChartThree from './ChartThree';
+import ExcelReader from './ExcelReader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ExcelReader />
+    <CharOne/>
+    <ChartTwo/>
+    <ChartThree/>
   </React.StrictMode>
 );
 
