@@ -1,5 +1,6 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
+import { consoParAn } from "./ExcelReader";
 
 function ChartOne() {
 
@@ -14,7 +15,7 @@ function ChartOne() {
     },
     series: [
       {
-        data: [1, 2, 3, 3, 4, 1, 2, 3, ],
+        data: consoParAn,
         type: "bar",
       },
     ],

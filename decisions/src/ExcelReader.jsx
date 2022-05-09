@@ -1,8 +1,12 @@
 
 import React from "react";
 import * as XLSX from "xlsx";
+import * as dayjs from "dayjs";
+
+let consoParAn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 const ExcelReader = () => {
+
     const onFileChange = (e) => {
         const [file] = e.target.files
 
@@ -39,18 +43,26 @@ const ExcelReader = () => {
         
             }
             console.log("tableau conso :", conso)
-            console.log("tableau €HT :", montantHT)           
-            console.log("tableau €TTC :", montantTTC)
+
+            
+            //let montantHTParAn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            //let montantTTCParAn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+           console.log((dayjs(conso[1].date).format('YYYY')))
+
+           for (let i = 0 ; i < conso.length; i++) {
+                if ((dayjs(conso[i].date).format('YYYY') === '2021')){
+                    if (isNaN(conso[i].value)) {
+                        conso[i].value = 0
+                    }
+                    consoParAn[dayjs(conso[i].date).month()] = consoParAn[dayjs(conso[i].date).month()] + conso[i].value
+                }
+ 
+            }
+            console.log(consoParAn)
+            
 
         }
-        
-        // faire un nouveau tableau (ex pour conso): 
-        // additionner value pour les date comprise entre 1 janvier et 31 decembre 2021 23h59 => dayJS pour les date ou moment
-        // faire une fonction pour mettre a jour le tableau
-        // pour mettre a jour le graph qui utilise un des tableau au dessus et return ce que j'ai besoin
-
-
-        //Mettre a jour le composant avec les parametres passés
     
 
         reader.readAsBinaryString(file)
@@ -60,3 +72,4 @@ const ExcelReader = () => {
 }
 
 export default ExcelReader;
+export {consoParAn};
