@@ -7,14 +7,14 @@ function ChartOne() {
   const option = {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Xxx"],
+      data: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"],
     },
     yAxis: {
       type: "value",
     },
     series: [
       {
-        data: [1, 2, 3, 3, 4, 1, 2, 3],
+        data: [1, 2, 3, 3, 4, 1, 2, 3, ],
         type: "bar",
       },
     ],
